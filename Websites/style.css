@@ -16,14 +16,19 @@ ol{
     list-style-type: upper-roman;
 }
 
-a{
+#menu-bar a{
     font-family: Helvetica, sans-serif;
     text-decoration: none;
     background-color:darkseagreen;
     padding: 5px;
 }
 
-a:hover{
+#menu-bar a:hover{
     background-color: aqua;
     color: #ffffff;
+}
+
+a:hover{
+    background-color:burlywood;
+    color:darkcyan;
 }
