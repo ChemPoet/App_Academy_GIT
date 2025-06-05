@@ -1,0 +1,20 @@
+#logo img{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+}
+
+#menu {
+    background-color: darkolivegreen;
+    padding: 10px;
+}
+
+#menu a{
+    text-decoration: none;
+    font-family:Calibri, 'Trebuchet MS', sans-serif;
+    color: orange;
+    font-size: large;
+    font-weight: bold;
+    padding:  5px;
+
+}
