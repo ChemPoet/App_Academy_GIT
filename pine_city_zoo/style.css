@@ -4,7 +4,7 @@ body{
     font-family: Helvetica;
 }
 
-/*===========HEADER===========*/
+/*===========  HEADER  ===========*/
 
 #header{
     position: fixed;
@@ -24,7 +24,7 @@ body{
     padding-top: 15px;
 }
 
-/*===========TOP-MENUS===========*/
+/*===========  TOP-MENUS  ===========*/
 
 #menu_top{
     position: fixed;
@@ -48,13 +48,13 @@ body{
     padding-top: 12px;
 }
 
-/*===========MAIN-HOME-PAGE===========*/
+/*===========  MAIN-HOME-PAGE  ===========*/
 
 #landing_main{
     margin-top: 120px;
 }
 
-/*===========BOTTOM-MENUS===========*/
+/*===========  BOTTOM-MENUS  ===========*/
 
 #menu_bottom{
     position: fixed;
@@ -78,14 +78,81 @@ body{
     padding-top: 10px;
 }
 
-/*===========ANIMALS-BACKGROUND-PAGE===========*/
+/*===========  MAIN  ===========*/
 
-#list_animals_back{
-    margin-top: 120px;
+#main{
+    margin-top: 119px;
+    background: url('images/map-blur.png');
+    background-repeat: repeat-y;
 }
 
-/*===========PLACES-BACKGROUND-PAGE===========*/
+#content{
+    padding-top: 1px;
+    padding-bottom: 50px;
+}
 
-#list_places_back{
-    margin-top: 120px;
+/*===========  INFO-BOX  ===========*/
+
+a.info-box{
+    text-decoration: none;
+    background: rgba(255,255,255,0.8);
+    width: 90%;
+    height: 90px;
+    display: block;
+    margin: auto;
+    margin-top: 12px;
+    padding: 1px;
+}
+
+.info-box img{
+    height: 70px;
+    margin: 10px;
+    float: left;
+}
+
+.info-box h3{
+    padding: 0;
+    margin-bottom: 0;
+    width: 90%;
+    color: #572800;
+}
+
+.info-box p{
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    color: #131313;
+}
+
+.info-box img.right{
+    /*  Any image with the class name "right", within the class "info-box"  */
+    float: right;
+    margin-top: 25px;
+    height: 40px;
+}
+
+/*===========  INFO-TEXT  ===========*/
+
+#info-text{
+    background: rgba(255,255,255,0.8);
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 12px;
+    padding: 10px;
+
+}
+
+#info-text img{
+    width: 100%;
+}
+
+#info-text h3{
+    text-align: center;
+}
+
+#info-text p{
+    text-align: justify;
+    font-family: Calibri;
+    font-weight: 540;
 }
