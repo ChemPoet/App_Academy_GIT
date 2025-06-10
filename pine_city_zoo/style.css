@@ -50,7 +50,7 @@ body{
 
 /*===========MAIN-HOME-PAGE===========*/
 
-#main_home{
+#landing_main{
     margin-top: 120px;
 }
 
@@ -76,4 +76,16 @@ body{
     text-align: center;
     font-weight: 700;
     padding-top: 10px;
+}
+
+/*===========ANIMALS-BACKGROUND-PAGE===========*/
+
+#list_animals_back{
+    margin-top: 120px;
+}
+
+/*===========PLACES-BACKGROUND-PAGE===========*/
+
+#list_places_back{
+    margin-top: 120px;
 }
