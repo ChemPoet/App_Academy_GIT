@@ -156,3 +156,20 @@ a.info-box{
     font-family: Calibri;
     font-weight: 540;
 }
+
+/*===========  INFO-TEXT  ===========*/
+
+#weather-box {
+    background: rgba(255,255,255,0.8);
+    width: 90%;
+    display: block;
+    margin: auto;
+    margin-top: 12px;
+    padding: 10px;
+    
+}
+
+#weather-box h3{
+    text-align: center;
+}
+
