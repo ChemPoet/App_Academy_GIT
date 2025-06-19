@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.cpm/ns/1.0"
+    id          = "com.itvarcity.imagegallery"
+    versionCode = "10"
+    version     = "1.0.0" >
+    
+    <name>Image Gallery</name>
+
+    <description>
+        Learn about the amazing Big 5.
+    </description>
+
+    <author href="https://itvarsity.co.za" email="info@itvarsity.co.za">
+        IT Varsity
+    </author>
+
+</widget>
