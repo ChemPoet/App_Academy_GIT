@@ -5,19 +5,32 @@
     </head>
     <body>
         <h1 id="heading1">Index Page Heading</h1>
-        <p id="paragraph1">Opening paragraph.</p>
+        <p id="paragraph1">Opening paragraph and testing text variables.</p>
+        <p id="paragraph2">Numeric variables testing.</p>
 
         <script>
+            // variables  |   define
+
             var text1;
             var text2;
             var text3;
 
+            var numA = 7;
+            var numB = 10;
+
+            // variables  |   value
+
             text1 = "Hello everyone";
             text2 = "I'm slowly learning JS. ";
             text3 = "JS is quite easy.";
+            
+
+            // variables  |   apply
 
             document.getElementById("heading1").innerHTML = (text1);
             document.getElementById("paragraph1").innerHTML = (text2 + text3);
+            document.getElementById("paragraph2").innerHTML = (numA + " X " + numB + " = " + numA * numB);
+
         </script>
 
     </body>
