@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p>operators on strings "4" and "5"</p>
+        <p id="outputText"></p>
+        <p id="outputText1"></p>
+        <p id="outputText2"></p>
+        <p id="outputText3"></p>
+        <br/>
+        <h3>strings to numbers!</h3>
+        <p>operators on numbers "4" and "5"</p>
+        <p id="outputText4"></p>
+        <p id="outputText5"></p>
+        <p id="outputText6"></p>
+        <p id="outputText7"></p>
+
+        <script>
+            var text1 = "1.12331335234523425664908978978";
+            var text2 = "5";
+
+            var num1 = stringToNumber(text1);
+            var num2 = stringToNumber(text2);
+
+            if(isNaN(num1) || isNaN(num2)){
+                document.getElementById("outputText").innerHTML = "You have not entered a valid number. Please try again.";
+                document.getElementById("outputText4").innerHTML = "You have not entered a valid number. Please try again.";
+            }
+                else{
+                    document.getElementById("outputText").innerHTML = text1 + text2;
+                    document.getElementById("outputText1").innerHTML = text1 - text2;
+                    document.getElementById("outputText2").innerHTML = text1 * text2;
+                    document.getElementById("outputText3").innerHTML = text1 / text2;
+
+                    document.getElementById("outputText4").innerHTML = num1 + num2;
+                    document.getElementById("outputText5").innerHTML = num1 - num2;
+                    document.getElementById("outputText6").innerHTML = num1 * num2;
+                    document.getElementById("outputText7").innerHTML = num1 / num2;
+            }
+
+            function stringToNumber(text){
+                return parseInt(text);
+            }
+            
+        </script>
+        
+    </body>
+</html>
