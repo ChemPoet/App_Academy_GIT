@@ -5,18 +5,49 @@
     </head>
     <body>
         <label for="weather">What is the weather like today? </label>
+        <!-- Created a label / caption for the "weather" selector element. -->
         <select id="weather">
+            <option value="noSelect">Select</option>
             <option value="sunny">Sunny</option>
             <option value="windy">Windy</option>
             <option value="rainy">Rainy</option>
             <option value="snowy">Snowy</option>
             <option value="cloudy">Cloudy</option>
         </select>
-        <a href="#">GO!</a>
+        <a href="#" onclick="buttonPress()">LET'S GO!</a>
         <p id="outputText">Weather advice: </p>
         
         <script>
+            function buttonPress(){
+                var weatherSelected = document.getElementById("weather").value;
+                var advice;
 
+                switch(weatherSelected){
+                    case "sunny":
+                        advice = "Wear your sunglasses and apply sunscreen. Remember to drink plenty of water.";
+                        break;
+                        /* IF the selected weather = sunny, 
+                        display "advice" as above, then 
+                        BREAK out of the SWITCH loop */
+                    case "windy":
+                        advice = "Wear a warm jersey or jacket. Perhaps take a beanie with you as well?";
+                        break;
+                    case "rainy":
+                        advice = "Wear your something warm and sturdy, closed shoes. Remember to take your raincoat or umbrella!";
+                        break;
+                    case "snowy":
+                        advice = "Wear a thick jacket and warm clothes. Consider taking a beanie or scarf with you as well.";
+                        break;
+                    case "cloudy":
+                        advice = "Wear something comfortable and warm, it might rain.";
+                        break;
+                    case "noSelect":
+                        advice = "Go have a look outside! What is the weather like today?";
+                        break;
+
+                }
+                document.getElementById("outputText").innerHTML = "Weather advice: " + advice;
+            }
             
         </script>
         
