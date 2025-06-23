@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1 id="heading" onclick="changeHeading1()">JavaScript</h1>
+    <p id="addition"></p>
+
+    <script>
+        document.getElementById("addition").innerHTML = addNumbers(5, 7);
+        /* The innerHTML element "addition" is called to output the RESULT OF the function "addNumbers",
+            with num1 = 5 and num = 7. */
+
+        function changeHeading1() {
+            if (document.getElementById("heading").innerHTML == 'JavaScript') {
+                document.getElementById("heading").innerHTML = 'is magic...'
+            }
+            else {
+                document.getElementById("heading").innerHTML = 'JavaScript'
+            }
+        }
+
+        /* (num1, num2) are function parameters. 
+            Two variables that are needed before function "addNumbers" can be executed. */
+        function addNumbers(num1, num2) {
+            return num1 + num2;
+        }
+
+
+    </script>
+
+</body>
+
+</html>

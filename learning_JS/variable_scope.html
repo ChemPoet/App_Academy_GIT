@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <p id="outputText"></p>
+
+        <script>
+            // NB!! Remember to CALL the function!! Otherwise it will just sit there...
+            var someVariable = 100;
+            // GLOBAL VARIABLE! Defined outside of a function.
+            someFunction();
+
+            function someFunction(){
+                document.getElementById("outputText").innerHTML = someVariable;
+            }
+            
+        </script>
+        
+    </body>
+</html>
