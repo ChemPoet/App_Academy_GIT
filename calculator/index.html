@@ -5,62 +5,71 @@
     </head>
     <body>
         <table border="1">
+            <!-- row 1 -->
             <tr>
                 <td colspan="4">
                     <input type="text" id="inputBox" value="0"/>
                 </td>
             </tr>
+            <!-- row 2 -->
             <tr>
-                <td>7</td>
-                <td>8</td>
-                <td>9</td>
+                <td onclick="digitButtonPress(7)">7</td>
+                <td onclick="digitButtonPress(8)">8</td>
+                <td onclick="digitButtonPress(9)">9</td>
                 <td>÷</td>
             </tr>
+            <!-- row 3 -->
             <tr>
-                <td>4</td>
-                <td>5</td>
-                <td>6</td>
+                <td onclick="digitButtonPress(4)">4</td>
+                <td onclick="digitButtonPress(5)">5</td>
+                <td onclick="digitButtonPress(6)">6</td>
                 <td>×</td>
             </tr>
+            <!-- row 4 -->
             <tr>
-                <td>1</td>
-                <td>2</td>
-                <td>3</td>
+                <td onclick="digitButtonPress(1)">1</td>
+                <td onclick="digitButtonPress(2)">2</td>
+                <td onclick="digitButtonPress(3)">3</td>
                 <td>–</td>
             </tr>
+            <!-- row 5 -->
             <tr>
-                <td>0</td>
+                <td onclick="digitButtonPress(0)">0</td>
                 <td>∙</td>
                 <td>CA</td>
                 <td>+</td>
             </tr>
+            <!-- row 6 -->
             <tr>
                 <td colspan="4">ANSWER</td>
             </tr>
         </table>
         
         <script>
-            // variables  |   define
 
-            var text1;
-            var text2;
-            var text3;
+            // Global variables  |   define
 
-            var numA = 7;
-            var numB = 10;
+            var newLine = true;
+
+            // Event Handler
+
+            function digitButtonPress(button){
+
+                if(newLine == true){
+                    document.getElementById("inputBox").value = button;
+                    newLine = false;
+                }
+                else {
+                    var currentValue = document.getElementById("inputBox").value;
+                    document.getElementById("inputBox").value = currentValue + button;
+                }
+            }
 
             // variables  |   value
 
-            text1 = "Hello everyone";
-            text2 = "I'm slowly learning JS. ";
-            text3 = "JS is quite easy.";
-            
 
             // variables  |   apply
 
-            document.getElementById("heading1").innerHTML = (text1);
-            document.getElementById("paragraph1").innerHTML = (text2 + text3);
-            document.getElementById("paragraph2").innerHTML = (numA + " X " + numB + " = " + numA * numB);
 
         </script>
 
