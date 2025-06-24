@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- onclick = JavaScript Event -->
+    <!-- onclick = build-in JS function that can be called outside <script> tag. -->
+    <h1 onclick="innerHTML='is magic...'">JavaScript</h1>
+    <br />
+    <!-- Can extend with an if/else statement; however, it becomes cumbersome. -->
+    <!-- <h1 onclick="if(this.innerHTML=='JavaScript'){this.innerHTML='is magic...'} else {this.innerHTML='JavaScript'}">
+        JavaScript</h1> -->
+
+    <h1 id="heading" onclick="changeHeading1()">JavaScript</h1>
+    <!-- Call a function using it's NAME and two brackets. -->
+     <!-- "this.innerHTML" is no longer valid because our code for ACTION is no longer in the SAME LINE as our OUTPUT.
+            ∴ Call the ACTION and OUTPUT elements by name! -->
+        
+    <script>
+        function changeHeading1() {
+            if (document.getElementById("heading").innerHTML == 'JavaScript') {
+                document.getElementById("heading").innerHTML = 'is magic...'
+            }
+            else {
+                document.getElementById("heading").innerHTML = 'JavaScript'
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

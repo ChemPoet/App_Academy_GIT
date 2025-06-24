@@ -1,0 +1,38 @@
+h1{
+    color:green;
+    font-family: sans-serif;
+}
+
+h3{
+    color:saddlebrown;
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+label{
+    color:midnightblue;
+    font-weight: 550;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+
+select{
+    padding: 5px;
+    font-family: sans-serif;
+}
+
+p{
+    color:darkgreen;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+
+a{
+    margin: 10px;
+}
+
+a:hover{
+    background-color:lightgoldenrodyellow;
+    color:indigo;
+    font-weight: 600;
+}
