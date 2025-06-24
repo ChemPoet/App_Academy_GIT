@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <table border="1">
+            <!-- row 1: display  -->
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="inputBox" value="0"/>
+                </td>
+            </tr>
+            <!-- row 2: 7, 8, 9, ÷  -->
+            <tr>
+                <td class="digitButton" onclick="digitButtonPress(7)">7</td>
+                <td class="digitButton" onclick="digitButtonPress(8)">8</td>
+                <td class="digitButton" onclick="digitButtonPress(9)">9</td>
+                <td class="operatorButton" onclick="operatorButtonPressed('/')">÷</td>
+            </tr>
+            <!-- row 3: 4, 5, 6, ×  -->
+            <tr>
+                <td class="digitButton" onclick="digitButtonPress(4)">4</td>
+                <td class="digitButton" onclick="digitButtonPress(5)">5</td>
+                <td class="digitButton" onclick="digitButtonPress(6)">6</td>
+                <td class="operatorButton" onclick="operatorButtonPressed('*')">×</td>
+            </tr>
+            <!-- row 4: 1, 2, 3, –  -->
+            <tr>
+                <td class="digitButton" onclick="digitButtonPress(1)">1</td>
+                <td class="digitButton" onclick="digitButtonPress(2)">2</td>
+                <td class="digitButton" onclick="digitButtonPress(3)">3</td>
+                <td class="operatorButton" onclick="operatorButtonPressed('-')">–</td>
+            </tr>
+            <!-- row 5: 0, ∙, CA, +  -->
+            <tr>
+                <td class="digitButton" onclick="digitButtonPress(0)">0</td>
+                <td class="digitButton" onclick="digitButtonPress('.')">∙</td>
+                <td class="caButton" onclick="caButtonPressed()">CA</td>
+                <td class="operatorButton" onclick="operatorButtonPressed('+')">+</td>
+            </tr>
+            <!-- row 6: ANSWER  -->
+            <tr>
+                <td colspan="4" class="operatorButton" onclick="answerButtonPressed()">ANSWER</td>
+            </tr>
+        </table>
+        
+        <script>
+
+        // Global variables  |   define
+            // DISPLAY BOOLEAN – NEW LINE (true), APPEND "input" (false)
+            var newLine = true;
+            var value1;
+            var currentOperator;
+
+        // Event Handlers
+            // DIGIT BUTTONS PRESSED
+            function digitButtonPress(button){
+                if(newLine == true){
+                    document.getElementById("inputBox").value = button;
+                    newLine = false;
+                }
+                else {
+                    var currentValue = document.getElementById("inputBox").value;
+                    document.getElementById("inputBox").value = currentValue + button;
+                }
+            }
+
+            // OPERATOR BUTTON PRESSED
+            function operatorButtonPressed(operator){
+                currentOperator = operator;
+                value1 = parseFloat(document.getElementById("inputBox").value);
+                newLine = true;
+            }
+
+            // ANSWER BUTTON PRESSED
+            function answerButtonPressed(){
+                var value2 = parseFloat(document.getElementById("inputBox").value);
+                var finalTotal;
+
+                switch(currentOperator){
+                    case "+":
+                        finalTotal = value1 + value2;
+                        break;
+                    case "-":
+                        finalTotal = value1 - value2;
+                        break;
+                    case "*":
+                        finalTotal = value1 * value2;
+                        break;
+                    case "/":
+                        finalTotal = value1 / value2;
+                        break;                    
+                }
+                document.getElementById("inputBox").value = finalTotal;
+
+                value1 = 0;
+                newLine = true;
+            }
+
+            // CLEAR ALL BUTTON PRESSED
+            function caButtonPressed(){
+                    document.getElementById("inputBox").value = 0;
+                    newLine = true;
+            }
+
+        </script>
+
+    </body>
+</html>
