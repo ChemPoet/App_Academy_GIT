@@ -8,8 +8,24 @@
         <p id="paragraph1">Opening paragraph and testing text variables.</p>
         <p id="paragraph2">Numeric variables testing.</p>
 
+        <table border="1">
+            <!-- row 1: display  -->
+            <tr>
+                <td colspan="4">
+                    <input type="text" id="inputBox" value="0"/>
+                </td>
+            </tr>
+            <!-- row 2: 7, 8, 9, ÷  -->
+            <tr>
+                <td class="digitButton" onclick="digitButtonPress(7)">7</td>
+                <td class="digitButton" onclick="digitButtonPress(8)">8</td>
+                <td class="digitButton" onclick="digitButtonPress(9)">9</td>
+                <td class="operatorButton" onclick="operatorButtonPressed('/')">÷</td>
+            </tr>
+        </table>
+        
         <script>
-            // variables  |   define
+        // Global variables  |   define
 
             var text1;
             var text2;
@@ -30,6 +46,14 @@
             document.getElementById("heading1").innerHTML = (text1);
             document.getElementById("paragraph1").innerHTML = (text2 + text3);
             document.getElementById("paragraph2").innerHTML = (numA + " X " + numB + " = " + numA * numB);
+
+        // Event Handlers
+            // OPERATOR BUTTON PRESSED
+            function operatorButtonPressed(operator){
+                currentOperator = operator;
+                value1 = parseFloat(document.getElementById("inputBox").value);
+                newLine = true;
+            }
 
         </script>
 
