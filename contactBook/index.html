@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title></title>
     </head>
     <body onload="fetchContacts()">
@@ -37,8 +38,8 @@
                         output += `
                             <tr>
                                 <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="80" /></td>
-                                <td><h5><firstname src="${rootPath}controller/uploads/${data[a].firstname}"/></h5></td>
-                                <td><h5><${data[a].lastname}"/></h5></td>
+                                <td><h5>${data[a].firstname}</h5></td>
+                                <td><h5>${data[a].lastname}</h5></td>
                             </tr>
                         `
                     }

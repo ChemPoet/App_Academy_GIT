@@ -13,7 +13,6 @@ label{
 
 form{
     color: #fff;
-    text-align: center;
     border-collapse: collapse;
     font: normal 3em Arial, Helvetica, sans-serif;
     margin: 2%;
@@ -21,40 +20,33 @@ form{
 
 table{
     color: #fff;
-    text-align: center;
+    text-align: justify;
     border-collapse: collapse;
     font: normal 3em Arial, Helvetica, sans-serif;
     margin: 2%;
 }
 
 tr{
-    height: 16vh;
+    height: 10vh;
     /* vh = vertical height
     = resizes proportional to size the screen. */
-    background-color: #4e494d;
 }
 
 td{
-    width: 25vw;
+    width:min-content;
     /* vw = vertical width
     = resizes proportional to size the screen. */
-    border: 1px solid #4e494d;
+    border: 1px #4e494d67;
 }
 
-td:hover{
+tr:hover{
     background-color:#4e494d;
-    color:#ee9301;
-    font-weight: 600;
 }
 
-#inputBox{
-    background-color: #4e494d;
-    text-align: right;
-    width: 97%;
-    font-size: 1.5em;
-    color: #fff;
-    border: 0px;
+button{
+    color:green;
+    font-family: sans-serif;
+    margin: 10px;
 }
-
 
 
