@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <br/>
+        <form id="editForm">
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname"><br/>
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname"><br/>
+            <label for="mobile">Mobile Number</label>
+            <input type="text" name="mobile" id="mobile"><br/>
+            <label for="email">Email Address</label>
+            <input type="email" name="email" id="email"><br/>
+            <!-- Automatically validates whether email address is entered in the correct format. -->
+            <!-- DOES NOT validate whether the email exists. -->
+            <!-- Empty field evaluates as TRUE. -->
+            <label for="avatar">Select a Profile Picture</label>
+            <input type="file" accept="image/*" name="avatar" id="avatar"><br/>
+            <!-- Automatically creates "Choose File" button. -->
+            <!-- Will only accept files with MIME format, e.g., jpg, png, jpeg, or mobile camera photos. -->
+            <br/>
+            <button type="submit" id="submitForm" >Submit</button>
+        </form>
+        <br/>
+        <button id="homeLink" type="button" >Home</button>
+
+        <script src="config.js"></script>
+        <script>
+
+
+
+        </script>
+
+    </body>
+</html>
