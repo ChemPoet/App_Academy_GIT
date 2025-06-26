@@ -36,8 +36,8 @@
                     // To access info on server (e.g., img) NEED
                     // to know the PATH and the FILE NAME
                         output += `
-                            <tr>
-                                <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="80" /></td>
+                            <tr onclick="editContactLink(${data[a].id})">
+                                <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="60" /></td>
                                 <td><h5>${data[a].firstname}</h5></td>
                                 <td><h5>${data[a].lastname}</h5></td>
                             </tr>
@@ -51,6 +51,11 @@
             function addContactLink(){
                 window.open("add-contact.html","_self");
             // "_self" forces the page to open in the same window, instead of a new window/tab.
+            }
+
+        /* EDIT-CONTACT-LINK FUNCTION */
+            function editContactLink(id){
+                window.open("edit-contact.html?id=" + id, "_self");
             }
 
         /*  EVENT LISTENERS */        

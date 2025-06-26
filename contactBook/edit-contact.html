@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <title></title>
+    </head>
+    <body onload="getContact()">
+        <br/>
+        <div id="avatarImage"></div>
+        <form id="editForm">
+            
+            <label for="firstname">First Name</label>
+            <input id="firstname" type="text" name="firstname" readonly><br/>
+
+            <label for="lastname">Last Name</label>
+            <input id="lastname" type="text" name="lastname" readonly><br/>
+
+            <label for="mobile">Mobile Number</label>
+            <input id="mobile" type="text" name="mobile" readonly><br/>
+
+            <label for="email">Email Address</label>
+            <input id="email" type="text" name="email" readonly><br/>
+
+            <label for="avatar" id="avatarLabel" hidden>Select a new Profile Picture</label>
+            <input id="avatar" type="file" name="avatar" hidden><br/>
+
+            <br/>
+            <button type="submit" id="submitForm" hidden>Submit</button>
+        </form>
+        <br/><br/>
+        <button id="homeLink" type="button">Home</button>
+        <button id="editContact" type="button">Edit</button>
+        <button id="deleteContact" type="button">Delete</button>
+
+        <script src="config.js"></script>
+        <script>
+        /* FETCH CONTACTS ID FROM SERVER */
+            var id = getId();
+            console.log("The id is: " + id);
+
+            function getId(){
+                var url = window.location.href;
+                var pos = url.search("=");
+                var id = url.slice(pos +1);
+                return id;
+            }
+
+        /* FETCH CONTACTS INFO FROM SERVER */
+            function getContact(){
+                fetch(rootPath + "controller/get-contacts/?id=" + id)
+                .then(function(response){
+                    return response.json();
+                })
+                .then(function(data){
+                    console.log(data);
+                    displayOutput(data);
+                })
+            }
+
+            function displayOutput(data){
+                avatarImg = `<img src="${rootPath}controller/uploads/${data[0].avatar}" width="200" />`
+                
+                document.getElementById("avatarImage").innerHTML = avatarImg;
+                document.getElementById("firstname").value = data[0].firstname;
+
+            }
+
+
+
+            function homeLink(){
+                window.open("index.html","_self");
+            }
+
+            // SUBMIT BUTTON
+            document.getElementById("submitForm").addEventListener('click', submitForm);
+
+            // HOME BUTTON
+            document.getElementById("homeLink").addEventListener('click', homeLink);
+/* 
+            // EDIT CONTACT BUTTON
+            document.getElementById("editContact").addEventListener('click', editContactLink);
+
+            // DELETE CONTACT BUTTON
+            document.getElementById("deleteContact").addEventListener('click', deleteContactLink);
+ */
+        </script>
+
+    </body>
+</html>

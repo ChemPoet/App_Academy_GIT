@@ -8,27 +8,27 @@
         <br/>
         <form id="editForm">
             <label for="firstname">First Name</label>
-            <input type="text" name="firstname" id="firstname"><br/>
+            <input id="firstname" type="text" name="firstname"><br/>
             <!-- Creates FORM DATA OBJECT compatable with the API:
                  ('firstname', user input); etc. -->
             <label for="lastname">Last Name</label>
-            <input type="text" name="lastname" id="lastname"><br/>
+            <input id="lastname" type="text" name="lastname"><br/>
             <label for="mobile">Mobile Number</label>
-            <input type="text" name="mobile" id="mobile"><br/>
+            <input id="mobile" type="text" name="mobile"><br/>
             <label for="email">Email Address</label>
-            <input type="text" name="email" id="email"><br/>
-            <!-- Automatically validates whether email address is entered in the correct format. 
-                 DOES NOT validate whether the email exists.
-                 Empty field evaluates as TRUE. -->
+            <input id="email" type="text" name="email"><br/>
+            <!-- Can automatically validate whether email address is entered in the correct format. 
+                 [input type="email"]
+                 DOES NOT validate whether the email exists. Empty field evaluates as TRUE. -->
             <label for="avatar">Select a Profile Picture</label>
-            <input type="file" name="avatar" id="avatar"><br/>
+            <input id="avatar" type="file" name="avatar"><br/>
             <!-- Automatically creates "Choose File" button. 
                  Will only accept files with MIME format, e.g., jpg, png, jpeg, or mobile camera photos. -->
             <br/>
-            <button type="submit" id="submitForm" >Submit</button>
+            <button id="submitForm" type="submit">Submit</button>
         </form>
         <br/>
-        <button id="homeLink" type="button" >Home</button>
+        <button id="homeLink" type="button">Home</button>
 
         <script src="config.js"></script>
         <script>
@@ -44,7 +44,7 @@
                     ['data type', data value], which is the API key from config file.*/
   
             // SEND FORM TO API
-                fetch(rootPath + 'controller/insert-contact/',{
+                fetch(rootPath + 'controller/add-contact/',{
                     // NB!! NB!! Remember to include the '/' at the end of the path!!
                     method: 'POST',
                     headers: {'Accept': 'application/json, *.*'},
