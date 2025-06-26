@@ -15,15 +15,15 @@
             <input type="text" name="lastname" id="lastname"><br/>
             <label for="mobile">Mobile Number</label>
             <input type="text" name="mobile" id="mobile"><br/>
-            <label for="email">Email Address</label>
-            <input type="email" name="email" id="email"><br/>
-            <!-- Automatically validates whether email address is entered in the correct format. -->
-            <!-- DOES NOT validate whether the email exists. -->
-            <!-- Empty field evaluates as TRUE. -->
+            <label for="text">Email Address</label>
+            <input type="text" name="email" id="email"><br/>
+            <!-- Automatically validates whether email address is entered in the correct format. 
+                 DOES NOT validate whether the email exists.
+                 Empty field evaluates as TRUE. -->
             <label for="avatar">Select a Profile Picture</label>
             <input type="file" accept="image/*" name="avatar" id="avatar"><br/>
-            <!-- Automatically creates "Choose File" button. -->
-            <!-- Will only accept files with MIME format, e.g., jpg, png, jpeg, or mobile camera photos. -->
+            <!-- Automatically creates "Choose File" button. 
+                 Will only accept files with MIME format, e.g., jpg, png, jpeg, or mobile camera photos. -->
             <br/>
             <button type="submit" id="submitForm" >Submit</button>
         </form>
@@ -32,26 +32,27 @@
 
         <script src="config.js"></script>
         <script>
-        // CONFIG FORM FOR API
-            // Default FORM behaviour = reload page.
-            // ∴ Need to prevent default FORM behaviour!
+        /* SUBMIT FORM HANDLER */
+            // CONFIG FORM FOR API
             function submitForm(e){
                 e.preventDefaul();
-
+                /* Default FORM behaviour = reload page.
+                    ∴ Need to prevent default FORM behaviour!*/
                 const form = new FormData(document.querySelector('#editForm'));
                 form.append('apiKey', apiKey);
-                // Appends the form information with an extra "key value pair",
-                // ['data type', data value], which is the API key from config file.
-
-        // SUBMIT FORM TO API
-                fetch(rootPath + 'controller/insert-contact',{
+                /* Appends the form information with an extra "key value pair",
+                    ['data type', data value], which is the API key from config file.*/
+  
+            // SEND FORM TO API
+                fetch(rootPath + 'controller/insert-contact/',{
+                    // NB!! NB!! Remember to include the '/' at the end of the path!!
                     method: 'POST',
                     headers: {'Accept': 'application/json, *.*'},
                     // Accept ALL TYPES of data.
                     body: form
                 })
-            // Connect to the API method specified for adding new contacts,
-            // then send the request: post and accept all data types in the for to the json.
+                /* Connect to the API method specified for adding new contacts,
+                    then send the request: post and accept all data types in the for to the json.*/
                 .then(function(response){
                     return response.text();
                 })
@@ -59,14 +60,28 @@
                 .then(function(data){
                     if(data == "1"){
                         alert("Contact added sucessfully.");
-// $~ link user back to HOME PAGE
+                        homeLink();
                     }
                     else{
                         alert(data);
-// $~ link user back to HOME PAGE
+                        homeLink();
                     }
                 })
             }
+
+        /* HOME-LINK FUNCTION */
+            function homeLink(){
+                window.open("index.html","_self");
+            // "_self" forces the page to open in the same window, instead of a new window/tab.
+            }
+
+        /*  EVENT LISTENERS */        
+            // SUBMIT BUTTON
+            document.getElementById("submitForm").addEventListener('click', submitForm);
+
+            // HOME BUTTON
+            document.getElementById("homeLink").addEventListener('click', homeLink);
+
 
 
         </script>

@@ -7,12 +7,12 @@
     <body onload="fetchContacts()">
 
         <div id="table">Contacts loading...</div>
-        <button id="refresh" type="button">Refreah</button>
+        <button id="refresh" type="button">Refresh</button>
         <button id="addContact" type="button">Add Contact</button>
 
         <script src="config.js"></script>
         <script>
-        // START-UP EVENT HANDELERS
+        /* START-UP EVENT HANDELERS*/
             // FETCH CONTACTS INFO FROM SERVER
             function fetchContacts(){
                 fetch(rootPath + "controller/get-contacts/")
@@ -46,8 +46,18 @@
                 document.getElementById("table").innerHTML = output;
             }
 
-        // REFRESH BUTTON
+        /* ADD-CONTACT-LINK FUNCTION */
+            function addContactLink(){
+                window.open("add-contact.html","_self");
+            // "_self" forces the page to open in the same window, instead of a new window/tab.
+            }
+
+        /*  EVENT LISTENERS */        
+            // REFRESH BUTTON ~ aka fetchContacts
             document.getElementById("refresh").addEventListener('click', fetchContacts);
+
+            // ADD CONTACT BUTTON
+            document.getElementById("addContact").addEventListener('click', addContactLink);
 
 
 
