@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <title></title>
     </head>
     <body>
@@ -19,10 +19,14 @@
 
             <label for="email">Email Address</label>
             <input id="email" type="text" name="email"><br/>
-
+            <!-- Can automatically validate whether email address is entered in the 
+                 correct format. [input type="email"], DOES NOT validate whether the
+                 email exists. Empty field evaluates as TRUE. -->
             <label for="avatar">Select a Profile Picture</label>
             <input id="avatar" type="file" name="avatar"><br/>
-
+            <!-- [<input type="file"] automatically creates "Choose File" button.
+                 With additional tag [accept="image/*"] it will only accept files
+                 with MIME format, e.g., jpg, png, jpeg, or mobile camera photos. -->
             <br/>
             <button type="submit" id="submitForm">Submit</button>
         </form>
@@ -31,20 +35,31 @@
 
         <script src="config.js"></script>
         <script>
-
+        /* SUBMIT FORM HANDLER */
+            // CONFIG FORM FOR API
             function submitForm(e){
                 e.preventDefault();
-
+                /* NB! NB!  Default FORM behaviour = reload page.
+                    ∴ Need to prevent default FORM behaviour!   */
                 const form = new FormData(document.querySelector('#editForm'));
+                /* Creates FORM DATA OBJECT compatable with the API: 
+                    ('firstname', user input); etc. */
                 form.append('apiKey', apiKey);
+                /* Appends the FORM DATA OBJECT with an extra "key value pair",
+                    ['data type', data value], which is the API key from config file.*/
+
   
+            // SEND FORM TO API
                 fetch(rootPath + 'controller/add-contact/',{
+                    // NB!! NB!! Remember to include the '/' at the end of the path!!
                     method: 'POST',
-                    headers: {'Accept': 'application/json, *.*'},
+                    headers: {'Accept': 'application/json, *.*'}, // NB!! NB!! Remember to include the '/' at the end of the path!!
                     body: form
-                })
+                }) /* Connect to the API method specified for adding new contacts,
+                    then send the request: post and accept all data types in the
+                    for to the json. */                
                 .then(function(response){
-                    return response.text();
+                    return response.text(); // Wait for API text response
                 })
                 .then(function(data){
                     if(data == "1"){
@@ -58,12 +73,18 @@
                 })
             }
 
+        /* HOME-LINK FUNCTION */
             function homeLink(){
                 window.open("index.html","_self");
+            /* "_self" forces the page to open in the same window,
+                 instead of a new window/tab. */
             }
 
+        /*  EVENT LISTENERS  |  BUTTON FUNCTIONS  */
+            // SUBMIT BUTTON
             document.getElementById("submitForm").addEventListener('click', submitForm);
 
+            // HOME BUTTON
             document.getElementById("homeLink").addEventListener('click', homeLink);
 
         </script>

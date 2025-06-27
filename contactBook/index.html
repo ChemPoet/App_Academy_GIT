@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <title></title>
     </head>
     <body onload="fetchContacts()">
@@ -21,8 +21,8 @@
                     return response.json();
                 })
                 .then(function(data){
-                    // TEST SERVER COMMUNICATION FIRST BY 
-                    // DISPLAYING OUTPUT ON BROWSER CONSOLE
+                    /* TEST SERVER COMMUNICATION FIRST BY 
+                        DISPLAYING OUTPUT ON BROWSER CONSOLE */
                     // console.log(data);
                     displayOutput(data);
                 })
@@ -33,8 +33,8 @@
                 output = "<table>";
                 // Use a 'for loop' to ITTERATE through an ARRAY
                     for(a in data){
-                    // To access info on server (e.g., img) NEED
-                    // to know the PATH and the FILE NAME
+                    /* To access info on server (e.g., img) NEED
+                        to know the PATH and the FILE NAME */
                         output += `
                             <tr onclick="editContactLink(${data[a].id})">
                                 <td><img src="${rootPath}controller/uploads/${data[a].avatar}" width="60" /></td>
@@ -50,7 +50,8 @@
         /* ADD-CONTACT-LINK FUNCTION */
             function addContactLink(){
                 window.open("add-contact.html","_self");
-            // "_self" forces the page to open in the same window, instead of a new window/tab.
+            /* "_self" forces the page to open in the same window,
+                instead of a new window/tab. */
             }
 
         /* EDIT-CONTACT-LINK FUNCTION */
@@ -58,7 +59,7 @@
                 window.open("edit-contact.html?id=" + id, "_self");
             }
 
-        /*  EVENT LISTENERS */        
+        /*  EVENT LISTENERS  |  BUTTON FUNCTIONS  */
             // REFRESH BUTTON ~ aka fetchContacts
             document.getElementById("refresh").addEventListener('click', fetchContacts);
 

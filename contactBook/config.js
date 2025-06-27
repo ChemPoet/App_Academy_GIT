@@ -1,6 +1,7 @@
 
 
 let rootPath = "https://mysite.itvarsity.org/api/ContactBook/";
+// The exact address to the folder directory on the server where we will be working.
 let apiKey = checkApiKey();
 
 function checkApiKey() {

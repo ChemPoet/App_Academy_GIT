@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
+        <!-- <link rel="stylesheet" href="style.css"> -->
         <title></title>
     </head>
     <body onload="getContact()">
@@ -63,25 +63,81 @@
                 
                 document.getElementById("avatarImage").innerHTML = avatarImg;
                 document.getElementById("firstname").value = data[0].firstname;
+                document.getElementById("lastname").value = data[0].lastname;
+                document.getElementById("mobile").value = data[0].mobile;
+                document.getElementById("email").value = data[0].email;
 
+            }
+
+        /* EDIT CONTACT INFO ON SERVER */
+            function editContactInfo(){
+                document.getElementById("firstname").readOnly = false;
+                document.getElementById("lastname").readOnly = false;
+                document.getElementById("mobile").readOnly = false;
+                document.getElementById("email").readOnly = false;
+                document.getElementById("avatarLabel").hidden = false;
+                document.getElementById("avatar").hidden = false;
+                document.getElementById("submitForm").hidden = false;
             }
 
 
 
+        /* SUBMIT EDITS TO SERVER */
+            function submitForm(e){
+                e.preventDefault();
+                /* NB! NB!  Default FORM behaviour = reload page.
+                    ∴ Need to prevent default FORM behaviour!   */
+                const form = new FormData(document.querySelector('#editForm'));
+                /* Creates FORM DATA OBJECT compatable with the API: 
+                    ('firstname', user input); etc. */
+                form.append('apiKey', apiKey);
+                form.append('id', id);
+                /* Appends the FORM DATA OBJECT with extra "key value pairs",
+                    ['data type', data value]: the API key from config file and
+                    the value of 'id' for the current contact.*/
+
+  
+            // SEND FORM TO API
+                fetch(rootPath + 'controller/edit-contact/',{
+                    // NB!! NB!! Remember to include the '/' at the end of the path!!
+                    method: 'POST',
+                    headers: {'Accept': 'application/json, *.*'}, // NB!! NB!! Remember to include the '/' at the end of the path!!
+                    body: form
+                }) /* Connect to the API method specified for adding new contacts,
+                    then send the request: post and accept all data types in the
+                    for to the json. */                
+                .then(function(response){
+                    return response.text(); // Wait for API text response
+                })
+                .then(function(data){
+                    if(data == "1"){
+                        alert("Contact added sucessfully.");
+                        homeLink();
+                    }
+                    else{
+                        alert(data);
+                        homeLink();
+                    }
+                })
+            }
+
+
+        /* HOME-LINK FUNCTION */
             function homeLink(){
                 window.open("index.html","_self");
             }
 
+        /*  EVENT LISTENERS  |  BUTTON FUNCTIONS  */        
             // SUBMIT BUTTON
             document.getElementById("submitForm").addEventListener('click', submitForm);
 
             // HOME BUTTON
             document.getElementById("homeLink").addEventListener('click', homeLink);
-/* 
+ 
             // EDIT CONTACT BUTTON
-            document.getElementById("editContact").addEventListener('click', editContactLink);
+            document.getElementById("editContact").addEventListener('click', editContactInfo);
 
-            // DELETE CONTACT BUTTON
+/*            // DELETE CONTACT BUTTON
             document.getElementById("deleteContact").addEventListener('click', deleteContactLink);
  */
         </script>
