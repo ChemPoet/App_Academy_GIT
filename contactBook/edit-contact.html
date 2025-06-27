@@ -37,7 +37,7 @@
         <script>
         /* FETCH CONTACTS ID FROM SERVER */
             var id = getId();
-            console.log("The id is: " + id);
+            // console.log("The id is: " + id);
 
             function getId(){
                 var url = window.location.href;
@@ -46,14 +46,14 @@
                 return id;
             }
 
-        /* FETCH CONTACTS INFO FROM SERVER */
+        /* FETCH CONTACT INFO FROM SERVER */
             function getContact(){
                 fetch(rootPath + "controller/get-contacts/?id=" + id)
                 .then(function(response){
                     return response.json();
                 })
                 .then(function(data){
-                    console.log(data);
+                    // console.log(data);
                     displayOutput(data);
                 })
             }
@@ -80,10 +80,8 @@
                 document.getElementById("submitForm").hidden = false;
             }
 
-
-
         /* SUBMIT EDITS TO SERVER */
-            function submitForm(e){
+            function submitFormLink(e){
                 e.preventDefault();
                 /* NB! NB!  Default FORM behaviour = reload page.
                     ∴ Need to prevent default FORM behaviour!   */
@@ -103,7 +101,7 @@
                     method: 'POST',
                     headers: {'Accept': 'application/json, *.*'}, // NB!! NB!! Remember to include the '/' at the end of the path!!
                     body: form
-                }) /* Connect to the API method specified for adding new contacts,
+                }) /* Connect to the API method specified for editing existing contact,
                     then send the request: post and accept all data types in the
                     for to the json. */                
                 .then(function(response){
@@ -111,7 +109,7 @@
                 })
                 .then(function(data){
                     if(data == "1"){
-                        alert("Contact added sucessfully.");
+                        alert("Contact edited sucessfully.");
                         homeLink();
                     }
                     else{
@@ -121,6 +119,27 @@
                 })
             }
 
+        /* DELETE CONTACT INFO FROM SERVER */
+            function deleteContactInfo(){
+                var confirmDelete = confirm("DELETE CONTACT?    Are you sure you want to delete this contact?");
+
+                if(confirmDelete == true){
+                    fetch(rootPath + 'controller/delete-contact/?id=' + id)
+                    .then(function(response){
+                        return response.text(); // Wait for API text response
+                    })
+                    .then(function(data){
+                        if(data == "1"){
+                            alert("Contact deleted sucessfully.");
+                            homeLink();
+                        }
+                        else{
+                            alert(data);
+                            homeLink();
+                        }
+                    })
+                }
+            }
 
         /* HOME-LINK FUNCTION */
             function homeLink(){
@@ -129,7 +148,7 @@
 
         /*  EVENT LISTENERS  |  BUTTON FUNCTIONS  */        
             // SUBMIT BUTTON
-            document.getElementById("submitForm").addEventListener('click', submitForm);
+            document.getElementById("submitForm").addEventListener('click', submitFormLink);
 
             // HOME BUTTON
             document.getElementById("homeLink").addEventListener('click', homeLink);
@@ -137,9 +156,9 @@
             // EDIT CONTACT BUTTON
             document.getElementById("editContact").addEventListener('click', editContactInfo);
 
-/*            // DELETE CONTACT BUTTON
-            document.getElementById("deleteContact").addEventListener('click', deleteContactLink);
- */
+           // DELETE CONTACT BUTTON
+            document.getElementById("deleteContact").addEventListener('click', deleteContactInfo);
+
         </script>
 
     </body>

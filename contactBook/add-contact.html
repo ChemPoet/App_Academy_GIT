@@ -37,7 +37,7 @@
         <script>
         /* SUBMIT FORM HANDLER */
             // CONFIG FORM FOR API
-            function submitForm(e){
+            function submitFormLink(e){
                 e.preventDefault();
                 /* NB! NB!  Default FORM behaviour = reload page.
                     ∴ Need to prevent default FORM behaviour!   */
@@ -82,7 +82,7 @@
 
         /*  EVENT LISTENERS  |  BUTTON FUNCTIONS  */
             // SUBMIT BUTTON
-            document.getElementById("submitForm").addEventListener('click', submitForm);
+            document.getElementById("submitForm").addEventListener('click', submitFormLink);
 
             // HOME BUTTON
             document.getElementById("homeLink").addEventListener('click', homeLink);
