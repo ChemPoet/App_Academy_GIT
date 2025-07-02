@@ -16,3 +16,6 @@ is cool"""
 
 print(message2)
 
+#   String Operators
+print(message + " " + message1)
+print(message * 3)
