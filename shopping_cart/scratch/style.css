@@ -1,0 +1,83 @@
+h1{
+    color:green;
+    font-family: sans-serif;
+}
+
+h3{
+    color:saddlebrown;
+    font-family: sans-serif;
+    margin: 10px;
+}
+
+table{
+    color: #fff;
+    text-align: center;
+    border-collapse: collapse;
+    font: normal 3em Arial, Helvetica, sans-serif;
+    margin: 2%;
+}
+
+tr{
+    height: 16vh;
+    /* vh = vertical height
+    = resizes proportional to size the screen. */
+    background-color: #4e494d;
+}
+
+td{
+    width: 25vw;
+    /* vw = vertical width
+    = resizes proportional to size the screen. */
+    border: 1px solid #4e494d;
+}
+
+td:hover{
+    background-color:#4e494d;
+    color:#ee9301;
+    font-weight: 600;
+}
+
+#inputBox{
+    background-color: #4e494d;
+    text-align: right;
+    width: 97%;
+    font-size: 1.5em;
+    color: #fff;
+    border: 0px;
+}
+
+.digitButton{
+    background-color: #807e80;
+}
+
+.operatorButton{
+    background-color: #ee9301;
+}
+
+label{
+    color:midnightblue;
+    font-weight: 550;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+
+select{
+    padding: 5px;
+    font-family: sans-serif;
+}
+
+p{
+    color:darkgreen;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 10px;
+}
+
+a{
+    margin: 10px;
+}
+
+a:hover{
+    background-color:lightgoldenrodyellow;
+    color:indigo;
+    font-weight: 600;
+}
