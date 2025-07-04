@@ -8,6 +8,8 @@
 food_list = []
 price_list = []
 shopping_cart = {}
+next_item = True
+check_out = False
 
 add_item = str(input("""What food item would you like to add to the list today?
                      
